@@ -21,11 +21,11 @@
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
         $(function () {
-    var socket = io();
-    socket.on('chat message', function(msg){
-      $('#messages').prepend($('<li>').text(msg));
-    });
-  });
+           var socket = io();
+           socket.on('chat message', function(msg){
+               $('#messages').prepend($('<li>').text(msg));
+           });
+        });
     </script>
   </body>
 </html>
