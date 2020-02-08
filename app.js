@@ -24,6 +24,10 @@ app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/number', function(req, res) {
+    res.json({number: (process.env.NUMBER ? process.env.NUMBER : "UNKNOWN")})
+})
+
 io.on('connection', function(socket){
   console.log('a user connected');
 });

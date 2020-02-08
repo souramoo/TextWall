@@ -4,7 +4,7 @@
     <title>Text Wall</title>
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
-      body { font: 31pt Helvetica, Arial; background: black; color: white }
+      body { font: 22pt Helvetica, Arial; background: black; color: white }
       form { background: #000; padding: 3px; position: fixed; bottom: 0; width: 100%; }
       form input { border: 0; padding: 10px; width: 90%; margin-right: .5%; }
       form button { width: 9%; background: rgb(130, 224, 255); border: none; padding: 10px; }
@@ -15,17 +15,21 @@
     </style>
   </head>
   <body>
-  <h1>Text 0772 356 9111 for a message on the screen!</h1>
+  <h1>Text <span id="n"></span> for a message on the screen!</h1>
     <ul id="messages"></ul>
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
         $(function () {
-    var socket = io();
-    socket.on('chat message', function(msg){
-      $('#messages').prepend($('<li>').html(msg));
-    });
-  });
+            $.getJSON( "/number", function( data ) {
+            console.log(data)
+                $("#n").text(data.number)
+            });
+            var socket = io();
+            socket.on('chat message', function(msg){
+              $('#messages').prepend($('<li>').html(msg));
+            });
+        });
     </script>
   </body>
 </html>
