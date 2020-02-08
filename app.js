@@ -22,7 +22,7 @@ let hours = date_ob.getHours();
 let minutes = date_ob.getMinutes();
 var time=('0'  + hours).slice(-2)+':'+('0' + minutes).slice(-2);
   
-  io.emit('chat message', '<i>[' + time + '] </i><b>' + params.From.slice(0,3) + "..."+params.From.slice(-3)+"</b>: " + params.Body);
+  io.emit('chat message', '<i>[' + time + '] </i><b>' + params.From.slice(0,4) + "..."+params.From.slice(-4)+"</b>: " + params.Body);
   response.status(204).send()
 }
 
