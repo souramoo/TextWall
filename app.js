@@ -16,7 +16,7 @@ app
 function handleInboundSms(request, response) {
   const params = Object.assign(request.query, request.body)
   console.log(params)
-  io.emit('chat message', '<b>+' + params.From + "</b>: " + params.Body);
+  io.emit('chat message', '<b>' + params.From + "</b>: " + params.Body);
   response.status(204).send()
 }
 
